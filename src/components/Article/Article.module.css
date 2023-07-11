@@ -1,0 +1,18 @@
+.article {
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border-radius: 6px;
+  height: 800px;
+  width: 100%;
+  /* background-color: #52315214; */
+  height: max-content;
+  overflow-wrap: normal;
+}
+
+.article h4 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+/* .content {
+  display: block;
+} */

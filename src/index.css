@@ -12,9 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -24,6 +21,7 @@ html {
   box-sizing: border-box;
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -39,6 +37,9 @@ html {
   padding-bottom: 24px;
 }
 
+/* #root {
+  height: 100vh;
+} */
 /* .Message {
   font-size: 1.2em;
   text-align: center;

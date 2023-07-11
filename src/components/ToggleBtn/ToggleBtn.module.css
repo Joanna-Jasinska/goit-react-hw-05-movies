@@ -30,7 +30,7 @@
 .themeDark.toggleBtn:hover {
   opacity: 1;
   /* color: inherit; */
-  color: #9f9f9f;
+  color: #b5b5b5;
   background-color: #ffffff2b;
   transform: scale(1.1);
 }
