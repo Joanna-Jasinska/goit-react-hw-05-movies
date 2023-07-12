@@ -18,7 +18,7 @@ export const Miniature = ({
           theme ? '' : css.themeDark
         } ${bg ? css[bg] : ''}`}
       >
-        {url && url != '' ? (
+        {url && url !== '' ? (
           <img className={css.img} src={url} alt={`\n${alt}`} />
         ) : (
           <div className={css.textBox}>Missing {alt}</div>

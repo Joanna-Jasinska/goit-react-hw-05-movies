@@ -11,7 +11,7 @@ export const Portrait = ({ url, alt = 'Title Big Movie', padding, bg }) => {
         theme ? '' : css.themeDark
       } ${bg ? css[bg] : ''}`}
     >
-      {url && url != '' ? (
+      {url && url !== '' ? (
         <img
           className={css.img}
           src={url}

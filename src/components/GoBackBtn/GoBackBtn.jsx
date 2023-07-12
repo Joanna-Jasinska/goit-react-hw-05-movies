@@ -12,7 +12,7 @@ export const GoBackBtn = ({ txt, hide = '/' }) => {
     (location.pathname === hide && !hasFrom) ||
     (hasFrom &&
       (location.state.from === location.pathname ||
-        location.state.from == hide));
+        location.state.from === hide));
   if (pathIsRedundant) return <></>;
 
   const from = hasFrom
