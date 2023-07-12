@@ -4,15 +4,17 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import css from './GoBackBtn.module.css';
 
 export const GoBackBtn = ({ txt, hide = '/' }) => {
+  const home = '/goit-react-hw-05-movies';
   const { theme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const hasFrom = location.state && location.state.from;
   const pathIsRedundant =
-    (location.pathname === hide && !hasFrom) ||
+    (!hasFrom && (location.pathname === hide || location.pathname === home)) ||
     (hasFrom &&
       (location.state.from === location.pathname ||
-        location.state.from === hide));
+        location.state.from === hide ||
+        location.state.from === home));
   if (pathIsRedundant) return <></>;
 
   const from = hasFrom
