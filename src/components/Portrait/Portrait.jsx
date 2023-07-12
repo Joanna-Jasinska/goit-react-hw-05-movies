@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import { useTheme } from 'components/ThemeProvider/ThemeProvider';
 import css from './Portrait.module.css';
 

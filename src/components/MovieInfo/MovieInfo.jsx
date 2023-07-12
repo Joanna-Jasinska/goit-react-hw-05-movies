@@ -5,9 +5,8 @@ import { Portrait } from 'components/Portrait/Portrait';
 import { Separator } from 'components/Separator/Separator';
 import { fetchMovieById } from 'services/api';
 import css from './MovieInfo.module.css';
-import { Article } from 'components/Article/Article';
-import { Button } from 'components/Button/Button';
 import { NavBtn } from 'components/NavBtn/NavBtn';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieInfo = () => {
   // 'Coming soon 🎬'
@@ -28,7 +27,7 @@ export const MovieInfo = () => {
     getMovie(movieId);
   }, [movieId]);
   if (!movie.title) {
-    return <>Loading...</>;
+    return <Loader/>;
   }
   return (
     <>

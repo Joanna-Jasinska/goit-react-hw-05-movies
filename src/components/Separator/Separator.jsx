@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import css from './Separator.module.css';
 export const Separator = ({ vertical = false, relative = false }) => {
   return (

@@ -1,5 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { PropTypes } from 'prop-types';
+import { createContext, useContext, useState } from 'react';
 const QueryContext = createContext();
 export const useQuery = () => useContext(QueryContext);
 export const QueryProvider = props => {

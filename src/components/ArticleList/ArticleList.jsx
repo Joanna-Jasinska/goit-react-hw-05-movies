@@ -26,13 +26,12 @@ export const ArticleList = () => {
       <br />
       <Separator />
       {list.length > 0 ? (
-        <ul className={css.ArticleList}>
+        <ul className={css.ArticleList} key={nanoid()}>
           {list.map(art => (
             <li>
               <Article
                 title={<>Author: {art.author}</>}
                 content={<>{art.content}</>}
-                key={nanoid()}
               />
               <Separator />
             </li>

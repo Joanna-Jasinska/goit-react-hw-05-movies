@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MovieList } from 'components/MovieList/MovieList';
-import { Title } from 'components/Title/Title';
 import { fetchTrending } from 'services/api';
-import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
-import { Separator } from 'components/Separator/Separator';
+import { Loader } from 'components/Loader/Loader';
 export const MainPage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,7 +32,7 @@ export const MainPage = () => {
   }, [setError, setIsLoading, setTrendingMovies]);
   return (
     <article>
-      <MovieList list={trendingMovies} />
+      {isLoading ? <Loader /> : <MovieList list={trendingMovies} />}
     </article>
   );
 };

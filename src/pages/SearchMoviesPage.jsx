@@ -3,8 +3,7 @@ import { Searchbar } from 'components/Searchbar/Searchbar';
 import { Separator } from 'components/Separator/Separator';
 import { MovieList } from 'components/MovieList/MovieList';
 import { fetchMovieByName } from 'services/api';
-// import { Button } from 'components/Button/Button';
-import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
+import { Loader } from 'components/Loader/Loader';
 import { useQuery } from 'components/QueryProvider/QueryProvider';
 
 export const SearchMoviesPage = () => {
@@ -32,12 +31,13 @@ export const SearchMoviesPage = () => {
       getSearchedMovies();
     } else {
       setMovies([]);
+      setIsLoading(false);
     }
   }, [query]);
   return (
     <article>
       <Searchbar searchHandle={setQuery} query={query} />
-      {isLoading ? 'Loading...' : <MovieList list={movies} />}
+      {isLoading ? <Loader /> : <MovieList list={movies} />}
       <Separator />
     </article>
   );

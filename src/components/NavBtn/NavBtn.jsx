@@ -1,4 +1,5 @@
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { useTheme } from 'components/ThemeProvider/ThemeProvider';
 import css from './NavBtn.module.css';
 // import { useEffect } from 'react';

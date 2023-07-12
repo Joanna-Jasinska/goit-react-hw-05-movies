@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { useTheme } from 'components/ThemeProvider/ThemeProvider';
 import css from './MovieLink.module.css';
 export const MovieLink = ({ to = '', text = '' }) => {

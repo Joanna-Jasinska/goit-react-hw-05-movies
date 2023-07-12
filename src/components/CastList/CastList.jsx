@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { Miniature } from 'components/Miniature/Miniature';
 import { fetchMovieCast } from 'services/api';
-// import { Separator } from 'components/Separator/Separator';
-import css from './CastList.module.css';
 import { Separator } from 'components/Separator/Separator';
+import css from './CastList.module.css';
+
 export const CastList = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
@@ -42,6 +42,7 @@ export const CastList = () => {
       <ul className={css.CastList}>
         {cast.map(a => (
           <Miniature
+            key={nanoid()}
             title={
               <>
                 <h4>{a.name || 'Unknown actor'}</h4>

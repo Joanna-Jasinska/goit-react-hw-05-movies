@@ -1,6 +1,8 @@
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useTheme } from 'components/ThemeProvider/ThemeProvider';
+import { PropTypes } from 'prop-types';
 import css from './HeaderNavBtn.module.css';
+
 export const HeaderNavBtn = ({ to = '/', display }) => {
   const { theme } = useTheme();
   const location = useLocation();

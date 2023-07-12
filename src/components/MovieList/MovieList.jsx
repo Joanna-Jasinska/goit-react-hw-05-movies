@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { PropTypes } from 'prop-types';
 import { MovieLink } from './MovieLink/MovieLink';
 import css from './MovieList.module.css';
 export const MovieList = ({ list = [], path = '/movies' }) => {

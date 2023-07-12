@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { useAppContext } from 'components/ContextProvider/ContextProvider';
 import { PropTypes } from 'prop-types';
 import css from './Searchbar.module.css';
 
