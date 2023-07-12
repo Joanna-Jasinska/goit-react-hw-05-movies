@@ -19,8 +19,13 @@ export const Portrait = ({ url, alt = 'Title Big Movie', padding, bg }) => {
         />
       ) : (
         <div className={css.textBox}>Missing {alt} poster</div>
-        // <></>
       )}
     </div>
   );
+};
+Portrait.propTypes = {
+  url: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  padding: PropTypes.bool,
+  bg: PropTypes.string,
 };

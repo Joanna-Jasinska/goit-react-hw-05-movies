@@ -19,3 +19,7 @@ export const MovieLink = ({ to = '', text = '' }) => {
     </li>
   );
 };
+MovieLink.propTypes = {
+  to: PropTypes.string,
+  text: PropTypes.string,
+};

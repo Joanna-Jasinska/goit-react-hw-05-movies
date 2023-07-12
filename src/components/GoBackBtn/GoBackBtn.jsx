@@ -43,4 +43,5 @@ export const GoBackBtn = ({ txt, hide = '/' }) => {
 
 GoBackBtn.propTypes = {
   txt: PropTypes.string,
+  hide: PropTypes.string,
 };

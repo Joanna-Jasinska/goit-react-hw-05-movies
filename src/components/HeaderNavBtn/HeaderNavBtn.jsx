@@ -33,3 +33,7 @@ export const HeaderNavBtn = ({ to = '/', display }) => {
     </NavLink>
   );
 };
+HeaderNavBtn.propTypes = {
+  to: PropTypes.string,
+  display: PropTypes.string,
+};

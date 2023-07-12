@@ -34,3 +34,7 @@ export const NavBtn = ({ to = '/', display }) => {
     </NavLink>
   );
 };
+NavBtn.propTypes = {
+  to: PropTypes.string,
+  display: PropTypes.string,
+};

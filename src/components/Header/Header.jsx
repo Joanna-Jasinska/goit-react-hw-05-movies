@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { PropTypes } from 'prop-types';
 import { HeaderNavBtn } from '../HeaderNavBtn/HeaderNavBtn';
 import { ToggleBtn } from '../ToggleBtn/ToggleBtn';
 import { useTheme } from 'components/ThemeProvider/ThemeProvider';
@@ -55,7 +54,3 @@ export const Header = () => {
     </header>
   );
 };
-
-// Searchbar.propTypes = {
-//   searchHandle: PropTypes.func.isRequired,
-// };

@@ -12,3 +12,7 @@ export const Separator = ({ vertical = false, relative = false }) => {
     </>
   );
 };
+Separator.propTypes = {
+  vertical: PropTypes.bool,
+  relative: PropTypes.bool,
+};

@@ -4,7 +4,7 @@ import css from './Searchbar.module.css';
 
 export const Searchbar = ({ searchHandle, query }) => {
   // const { query, setQuery } = useAppContext();
-  const [input, setInput] = useState(query);
+  const [input, setInput] = useState(query || '');
   const inputHandle = e => setInput(e.target.value);
   const submitHandle = e => {
     e.preventDefault();
@@ -35,5 +35,6 @@ export const Searchbar = ({ searchHandle, query }) => {
 };
 
 Searchbar.propTypes = {
+  query: PropTypes.string,
   searchHandle: PropTypes.func.isRequired,
 };

@@ -28,3 +28,10 @@ export const Miniature = ({
     </figure>
   );
 };
+Miniature.propTypes = {
+  url: PropTypes.string,
+  alt: PropTypes.string,
+  title: PropTypes.object,
+  padding: PropTypes.bool,
+  bg: PropTypes.string,
+};

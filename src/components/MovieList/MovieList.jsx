@@ -7,11 +7,20 @@ export const MovieList = ({ list = [], path = '/movies' }) => {
     <ul className={css.MovieList}>
       {list.map(movie => (
         <MovieLink
-          text={movie.title}
+          text={movie.title || 'Title to be announced later'}
           to={`${path}/${movie.id}`}
           key={nanoid()}
         />
       ))}
     </ul>
   );
+};
+MovieList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ),
+  path: PropTypes.string,
 };
