@@ -20,7 +20,11 @@ export const GoBackBtn = ({ txt, hide = '/' }) => {
         location.state.from.lastIndexOf('/') + 1
       )}`
     : 'Home';
-  const shortFrom = `${from[0].toUpperCase()}${from.slice(1)}`;
+  const shortFrom = `${(from == '' ? 'Home' : from)[0].toUpperCase()}${(from ==
+  ''
+    ? 'Home'
+    : from
+  ).slice(1)}`;
   const display =
     shortFrom === `${Number(shortFrom)}` ? 'Movie Details' : `${shortFrom}`;
   const goBack = () => {
