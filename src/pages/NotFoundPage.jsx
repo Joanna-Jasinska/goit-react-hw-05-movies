@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import { Title } from 'components/Title/Title';
 export const NotFoundPage = () => {
   return (

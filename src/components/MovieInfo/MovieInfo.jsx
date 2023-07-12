@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { Title } from 'components/Title/Title';
 import { Portrait } from 'components/Portrait/Portrait';
 import { Separator } from 'components/Separator/Separator';
