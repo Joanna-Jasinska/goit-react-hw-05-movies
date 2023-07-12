@@ -37,7 +37,7 @@ export const SearchMoviesPage = () => {
   return (
     <article>
       <Searchbar searchHandle={setQuery} query={query} />
-      {isLoading ? <Loader /> : <MovieList list={movies} />}
+      {isLoading ? <Loader /> : error ? error : <MovieList list={movies} />}
       <Separator />
     </article>
   );

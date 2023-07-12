@@ -11,10 +11,8 @@ import { Loader } from 'components/Loader/Loader';
 export const MovieInfo = () => {
   // 'Coming soon 🎬'
   const { movieId } = useParams();
-  const location = useLocation();
   const [movie, setMovie] = useState({});
-  // const { title, release_date, poster_path, vote_average, overview, genres } =
-  //   movie;
+  //{ title, release_date, poster_path, vote_average, overview, genres }
   useEffect(() => {
     const getMovie = async movieId => {
       try {
@@ -27,7 +25,7 @@ export const MovieInfo = () => {
     getMovie(movieId);
   }, [movieId]);
   if (!movie.title) {
-    return <Loader/>;
+    return <Loader />;
   }
   return (
     <>

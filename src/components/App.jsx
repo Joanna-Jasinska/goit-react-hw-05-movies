@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { ThemeProvider } from './ThemeProvider/ThemeProvider';
 import { QueryProvider } from './QueryProvider/QueryProvider';
+import { Loader } from './Loader/Loader';
 
 const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
 const MainPage = lazy(() => import('./../pages/MainPage'));
@@ -15,14 +16,14 @@ const ArticleList = lazy(() => import('./ArticleList/ArticleList'));
 
 export const App = () => {
   const location = useLocation();
-  const idToScrollTo =
-    location.pathname.substring(location.pathname.lastIndexOf('/') + 1) ||
-    'home';
 
   useEffect(() => {
     const scroll = () => {
+      const idToScrollTo =
+        location.pathname.substring(location.pathname.lastIndexOf('/') + 1) ||
+        'home';
       const scrollTo =
-        location.state && idToScrollTo != `${Number(idToScrollTo)}`
+        location.state && idToScrollTo !== `${Number(idToScrollTo)}`
           ? document.querySelector(`#${idToScrollTo}`)
           : undefined;
 
@@ -56,17 +57,14 @@ export const App = () => {
     <>
       <ThemeProvider>
         <QueryProvider>
-          <Suspense fallback={<div>Loading...please wait</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<SharedLayout />}>
                 <Route index element={<MainPage />} />
                 <Route path="goit-react-hw-05-movies" element={<MainPage />} />
                 <Route path="credits" element={<CreditsPage />} />
-                <Route path="movies" element={<SearchMoviesPage />}>
-                  {/* <Route index element={<Searchbar />} /> */}
-                </Route>
+                <Route path="movies" element={<SearchMoviesPage />}></Route>
                 <Route path="movies/:movieId" element={<MovieInfo />}>
-                  {/* <Route index element={<>Nic</>} /> */}
                   <Route path="cast" element={<CastList />} />
                   <Route path="reviews" element={<ArticleList />} />
                 </Route>

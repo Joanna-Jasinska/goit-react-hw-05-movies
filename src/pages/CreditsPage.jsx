@@ -1,6 +1,5 @@
 import { Article } from 'components/Article/Article';
 import { Miniature } from 'components/Miniature/Miniature';
-import { Title } from 'components/Title/Title';
 import jj from './../images/JoannaJasinska.jpg';
 import dog from './../images/dog_2023.jpg';
 import { Flexbox } from 'components/Flexbox/Flexbox';

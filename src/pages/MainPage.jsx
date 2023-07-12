@@ -7,12 +7,6 @@ export const MainPage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const location = useLocation();
-  const list = [
-    { title: 'movie1', movieId: 'movieId1' },
-    { title: 'movie2', movieId: 'movieId1' },
-    { title: 'movie3', movieId: 'movieId1' },
-  ];
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -32,7 +26,13 @@ export const MainPage = () => {
   }, [setError, setIsLoading, setTrendingMovies]);
   return (
     <article>
-      {isLoading ? <Loader /> : <MovieList list={trendingMovies} />}
+      {isLoading ? (
+        <Loader />
+      ) : error ? (
+        error
+      ) : (
+        <MovieList list={trendingMovies} />
+      )}
     </article>
   );
 };
