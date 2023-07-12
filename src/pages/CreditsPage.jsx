@@ -27,6 +27,7 @@ export const CreditsPage = () => {
           alt={`Joanna\nJasińska\n😁`}
           title={
             <>
+              <h4>Joanna Jasińska</h4>
               Page created in 2023 <br />
               by Joanna Jasińska.
             </>
@@ -39,6 +40,7 @@ export const CreditsPage = () => {
           padding={true}
           title={
             <>
+              <h4>TMDB</h4>
               This product uses the {tmdb} API but is not endorsed or certified
               by TMDB.
             </>
@@ -50,6 +52,7 @@ export const CreditsPage = () => {
           url={dog}
           title={
             <>
+              <h4>Wojciech Jasiński</h4>
               Special thanks for a little help from my awesome husband Wojciech
               Jasiński.
             </>
@@ -60,3 +63,4 @@ export const CreditsPage = () => {
     </section>
   );
 };
+export default CreditsPage;

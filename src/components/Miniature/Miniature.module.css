@@ -1,3 +1,9 @@
+.miniature h1,
+.miniature h2,
+.miniature h3,
+.miniature h4 {
+  margin-top: 0px;
+}
 .miniature {
   position: relative;
   display: flex;
@@ -5,14 +11,22 @@
   border-radius: 6px;
   overflow: hidden;
   padding: 0 1rem 0 0;
-  width: 370px;
+  width: 368px;
   margin: 0;
   background-color: #52315214;
 }
 .padding {
   padding: 0.8rem;
 }
+.textBox {
+  margin: auto;
+  max-width: 160px;
+  text-align: center;
+  padding: 0.8rem;
+}
 .imgFrame {
+  display: flex;
+  object-fit: cover;
   aspect-ratio: 1/1;
   background-color: #aa9eae41;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -80,6 +94,7 @@
   /* object-fit: cover; */
   object-fit: inherit;
   min-height: 100px;
+  /* height: max-content; */
   text-align: center;
   justify-content: center;
   line-height: 1.2em;

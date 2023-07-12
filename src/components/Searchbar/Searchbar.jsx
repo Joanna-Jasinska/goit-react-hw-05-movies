@@ -1,16 +1,16 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 // import { useAppContext } from 'components/ContextProvider/ContextProvider';
 import { PropTypes } from 'prop-types';
 import css from './Searchbar.module.css';
 
-export const Searchbar = ({ searchHandle }) => {
+export const Searchbar = ({ searchHandle, query }) => {
   // const { query, setQuery } = useAppContext();
-  // const [input, setInput] = useState(query);
-  // const inputHandle = e => setInput(e.target.value);
+  const [input, setInput] = useState(query);
+  const inputHandle = e => setInput(e.target.value);
   const submitHandle = e => {
     e.preventDefault();
     // setQuery(input);
-    // searchHandle();
+    searchHandle(input);
   };
 
   return (
@@ -26,8 +26,8 @@ export const Searchbar = ({ searchHandle }) => {
           autoComplete="off"
           autoFocus
           name="query"
-          // value={input}
-          // onInput={inputHandle}
+          value={input}
+          onInput={inputHandle}
           placeholder="Search for movies"
         />
       </form>

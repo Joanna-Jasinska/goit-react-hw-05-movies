@@ -8,3 +8,4 @@ export const NotFoundPage = () => {
     </article>
   );
 };
+export default NotFoundPage;

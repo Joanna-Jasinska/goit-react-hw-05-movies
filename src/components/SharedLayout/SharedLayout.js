@@ -9,11 +9,12 @@ export const SharedLayout = () => {
   return (
     <div className={`${css.page} ${theme ? '' : css.themeDark}`}>
       <Header />
-      <main className={css.pageContent}>
+      <main className={css.pageContent} id="home">
         <GoBackBtn />
         <Outlet />
       </main>
-      <footer className="footer" />
+      <footer className="footer" id="footer" />
     </div>
   );
 };
+export default SharedLayout;

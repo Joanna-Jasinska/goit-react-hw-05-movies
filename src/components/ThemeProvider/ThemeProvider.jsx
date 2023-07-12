@@ -7,7 +7,6 @@ export const ThemeProvider = props => {
     JSON.parse(localStorage.getItem('theme')) || false
   );
   const toggleTheme = () => {
-    console.log(`switching themes to ${theme ? 'light' : 'dark'}`);
     setTheme(!theme);
   };
 

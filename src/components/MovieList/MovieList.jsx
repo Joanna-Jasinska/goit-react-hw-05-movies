@@ -7,7 +7,7 @@ export const MovieList = ({ list = [], path = '/movies' }) => {
       {list.map(movie => (
         <MovieLink
           text={movie.title}
-          to={path + '/' + movie.movieId}
+          to={`${path}/${movie.id}`}
           key={nanoid()}
         />
       ))}

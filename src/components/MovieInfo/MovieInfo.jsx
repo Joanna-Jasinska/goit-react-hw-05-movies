@@ -1,32 +1,61 @@
+import { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { Title } from 'components/Title/Title';
 import { Portrait } from 'components/Portrait/Portrait';
 import { Separator } from 'components/Separator/Separator';
+import { fetchMovieById } from 'services/api';
 import css from './MovieInfo.module.css';
 import { Article } from 'components/Article/Article';
 import { Button } from 'components/Button/Button';
 import { NavBtn } from 'components/NavBtn/NavBtn';
 
-export const MovieInfo = ({
-  movieId = '[movie id]',
-  title = 'The Movie Title',
-  url = 'Coming soon 🎬',
-}) => {
+export const MovieInfo = () => {
+  // 'Coming soon 🎬'
+  const { movieId } = useParams();
   const location = useLocation();
+  const [movie, setMovie] = useState({});
+  // const { title, release_date, poster_path, vote_average, overview, genres } =
+  //   movie;
+  useEffect(() => {
+    const getMovie = async movieId => {
+      try {
+        const movieData = await fetchMovieById(movieId);
+        setMovie(movieData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMovie(movieId);
+  }, [movieId]);
+  if (!movie.title) {
+    return <>Loading...</>;
+  }
   return (
     <>
       <div className={css.dividedSection}>
         <div className={css.frame}>
-          <Portrait url={url} />
+          <Portrait
+            url={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w400/${movie.poster_path}`
+                : undefined
+            }
+            alt={movie.title}
+          />
         </div>
-        {/* <Separator vertical={true} relative={true} /> */}
         <div className={css.frame}>
-          <Title txt={title} />
-          User score: 71% <br />
+          <Title txt={movie.title} />
+          User score:
+          {movie.vote_average
+            ? ` ${(movie.vote_average * 10).toFixed(0)}%`
+            : ' Not rated yet'}
+          <br />
           <h3>Overwiev</h3>
-          txt <br />
+          {movie.overview}
+          <br />
           <h4>Genres</h4>
-          genre list <br />
+          {movie.genres.map(genre => genre.name).join(', ')}
+          <br />
         </div>
       </div>
       <Separator />
@@ -34,19 +63,8 @@ export const MovieInfo = ({
       <br />
       <NavBtn to={`cast`} display="Cast" />
       <NavBtn to={`reviews`} display="Reviews" />
-      <Separator />
-      {/* info content
-      <Article
-        title="art title"
-        content={'bla bla bla \nbla bla bla \nbla bla bla'}
-      />
-      <Article title="art title" content="bla bla bla" />
-      <Article
-        title="art title"
-        content={'bla bla bla \nbla bla bla \nbla bla bla'}
-      /> */}
       <Outlet />
-      <Separator />
     </>
   );
 };
+export default MovieInfo;

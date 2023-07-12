@@ -1,27 +1,45 @@
-import {
-  Routes,
-  Route,
-  useParams,
-  NavLink,
-  Outlet,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-import { MovieInfo } from 'components/MovieInfo/MovieInfo';
-import { Title } from 'components/Title/Title';
 import { Separator } from 'components/Separator/Separator';
+import { MovieList } from 'components/MovieList/MovieList';
+import { fetchMovieByName } from 'services/api';
 // import { Button } from 'components/Button/Button';
 import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
+import { useQuery } from 'components/QueryProvider/QueryProvider';
 
 export const SearchMoviesPage = () => {
+  const { query, setQuery } = useQuery();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   // const navigate = useNavigate();
   // const location = useLocation();
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    if (query !== '') {
+      const getSearchedMovies = async () => {
+        try {
+          setError(false);
+          setIsLoading(true);
+          const data = await fetchMovieByName(query);
+          setMovies(data.results);
+        } catch (error) {
+          setError(true);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
+      getSearchedMovies();
+    } else {
+      setMovies([]);
+    }
+  }, [query]);
   return (
     <article>
-      {/* <Title txt="--movies page--" /> */}
-      <Outlet />
+      <Searchbar searchHandle={setQuery} query={query} />
+      {isLoading ? 'Loading...' : <MovieList list={movies} />}
+      <Separator />
     </article>
   );
 };
+export default SearchMoviesPage;

@@ -20,7 +20,9 @@ export const GoBackBtn = ({ txt, hide = '/' }) => {
         location.state.from.lastIndexOf('/') + 1
       )}`
     : 'Home';
-  const display = `${from[0].toUpperCase()}${from.slice(1)} \u2190`;
+  const shortFrom = `${from[0].toUpperCase()}${from.slice(1)}`;
+  const display =
+    shortFrom === `${Number(shortFrom)}` ? 'Movie Details' : `${shortFrom}`;
   const goBack = () => {
     navigate(hasFrom ? location.state.from : '/', {
       replace: false,
@@ -33,7 +35,8 @@ export const GoBackBtn = ({ txt, hide = '/' }) => {
       type="button"
       onClick={goBack}
     >
-      {txt || display}
+      {txt || 'Back to \u2192 ' + display}
+      {/* \u2190 */}
     </button>
   );
 };

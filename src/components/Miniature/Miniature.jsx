@@ -8,7 +8,6 @@ export const Miniature = ({
   padding = false,
   bg,
 }) => {
-  // const pic = url ? require(`${url}`) : '';
   // Image not found 😢
   const { theme } = useTheme();
   return (
@@ -18,7 +17,12 @@ export const Miniature = ({
           theme ? '' : css.themeDark
         } ${bg ? css[bg] : ''}`}
       >
-        <img className={css.img} src={url} alt={`\n${alt}`} />
+        {url && url != '' ? (
+          <img className={css.img} src={url} alt={`\n${alt}`} />
+        ) : (
+          <div className={css.textBox}>Missing {alt}</div>
+          // <></>
+        )}
       </div>
       <figcaption className={css.figcaption}>{title || alt}</figcaption>
     </figure>
