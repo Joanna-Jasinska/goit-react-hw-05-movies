@@ -3,7 +3,7 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider = props => {
   const [theme, setTheme] = useState(
-    JSON.parse(localStorage.getItem('theme')) || false
+    JSON.parse(localStorage.getItem('theme')) || true
   );
   const toggleTheme = () => {
     setTheme(!theme);
