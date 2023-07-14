@@ -15,7 +15,7 @@ export const Article = ({ title, content, id }) => {
   );
 };
 Article.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.object,
   content: PropTypes.object,
   id: PropTypes.string,
 };
