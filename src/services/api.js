@@ -4,6 +4,7 @@ const baseURL = 'https://api.themoviedb.org';
 const API_KEY = '78f2b6656e3343e055b38455360ff324';
 
 const params = new URLSearchParams({
+  baseURL: 'https://api.themoviedb.org',
   key: API_KEY,
   page: 1,
 });
