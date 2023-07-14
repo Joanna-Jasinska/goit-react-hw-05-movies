@@ -24,7 +24,7 @@ export const Portrait = ({ url, alt = 'Title Big Movie', padding, bg }) => {
   );
 };
 Portrait.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   alt: PropTypes.string,
   padding: PropTypes.bool,
   bg: PropTypes.string,
